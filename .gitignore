@@ -43,3 +43,15 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+# local artifacts
+coverage/
+node_modules/
+rules-tests/node_modules/
+.dart_tool/
+build/
+
+coverage/
+node_modules/
+rules-tests/node_modules/
+.dart_tool/
+build/

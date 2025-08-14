@@ -1,6 +1,8 @@
+// lib/services/exercise_service.dart
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:workout_pro/model/exercise.dart';
+import 'package:meta/meta.dart'; // for @visibleForTesting
 
 /// Central service for CRUD + analytics.
 /// Storage path: users/{uid}/exercises/{docId}
@@ -8,12 +10,20 @@ class ExerciseService {
   final FirebaseFirestore firestore;
   final String uid;
 
+  // Production / normal constructor
   ExerciseService({FirebaseFirestore? firestore, String? userId})
       : firestore = firestore ?? FirebaseFirestore.instance,
         uid = userId ?? (FirebaseAuth.instance.currentUser?.uid ?? '') {
     assert(uid.isNotEmpty,
         'ExerciseService requires an authenticated user (uid missing).');
   }
+
+  // ✅ Test-only constructor (no FirebaseAuth needed in tests)
+  @visibleForTesting
+  ExerciseService.test(
+      {required FirebaseFirestore firestore, required String userId})
+      : firestore = firestore,
+        uid = userId;
 
   CollectionReference<Map<String, dynamic>> get _col =>
       firestore.collection('users').doc(uid).collection('exercises');
