@@ -1,0 +1,1 @@
+genhtml coverage/lcov.info -o docs/test_evidence/coverage_html

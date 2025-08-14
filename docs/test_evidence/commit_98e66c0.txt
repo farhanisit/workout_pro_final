@@ -1,0 +1,15 @@
+commit 98e66c049c057706d7b495c6ca14fa79c04128b9
+Author: Farhan ahmed <farhanahmed@VANTH.local>
+Date:   Thu Aug 14 22:26:42 2025 +0530
+
+    tests: unit + stream widget + go_router backstack (programmatic pop)
+
+ lib/core_screens/screens_/dashboard_screen.dart |  1 +
+ lib/core_screens/screens_/home_screen.dart      | 11 ++-
+ lib/services/stats_utils.dart                   | 39 +++++++++++
+ lib/testing/keys.dart                           | 16 +++++
+ test/nav_backstack_widget_test.dart             | 90 +++++++++++++++++++++++++
+ test/stats_utils_test.dart                      | 19 ++++++
+ test/widget_test.dart                           | 30 ---------
+ test/widgets/home_counts_stream_test.dart       | 60 +++++++++++++++++
+ 8 files changed, 235 insertions(+), 31 deletions(-)

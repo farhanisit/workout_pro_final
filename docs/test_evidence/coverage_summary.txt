@@ -1,0 +1,9 @@
+                        |Lines       |Functions  
+Filename                |Rate     Num|Rate    Num
+=================================================
+[lib/services/]
+stats_utils.dart        | 100%     18|    -     0
+=================================================
+                  Total:| 100%     18|    -     0
+Message summary:
+  no messages were reported
