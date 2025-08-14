@@ -12,7 +12,7 @@ void main() {
 
   setUp(() {
     fake = FakeFirebaseFirestore();
-    svc = ExerciseService(firestore: fake); // DI, as in your app
+    svc = ExerciseService.test(firestore: fake, userId: 'u1'); // DI, as in your app
   });
 
   // Helper that matches your Exercise model (named params; target is String; DateTime? createdAt)

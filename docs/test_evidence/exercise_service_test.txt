@@ -1,31 +1,28 @@
-00:00 +0: loading /Users/farhanahmed/development/workout_pro_final/test/services/exercise_service_test.dart                                                                                            00:01 +0: loading /Users/farhanahmed/development/workout_pro_final/test/services/exercise_service_test.dart                                                                                            00:01 +0: create + read back                                                                                                                                                                           00:01 +0 -1: create + read back [E]                                                                                                                                                                    
-  [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
-  package:firebase_core_platform_interface/src/method_channel/method_channel_firebase.dart 192:5  MethodChannelFirebase.app
-  package:firebase_core/src/firebase.dart 79:41                                                   Firebase.app
-  package:firebase_auth/src/firebase_auth.dart 38:47                                              FirebaseAuth.instance
-  package:workout_pro/services/exercise_service.dart 13:39                                        new ExerciseService
-  test/services/exercise_service_test.dart 15:11                                                  main.<fn>
+00:00 +0: loading /Users/farhanahmed/development/workout_pro_final/test/services/exercise_service_test.dart                                                                                            00:01 +0: loading /Users/farhanahmed/development/workout_pro_final/test/services/exercise_service_test.dart                                                                                            00:02 +0: loading /Users/farhanahmed/development/workout_pro_final/test/services/exercise_service_test.dart                                                                                            00:03 +0: loading /Users/farhanahmed/development/workout_pro_final/test/services/exercise_service_test.dart                                                                                            00:03 +0: create + read back                                                                                                                                                                           00:03 +0 -1: create + read back [E]                                                                                                                                                                    
+  Expected: non-empty
+    Actual: []
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 474:18  expect
+  test/services/exercise_service_test.dart 50:5       main.<fn>
   
 
 To run this test again: /Users/farhanahmed/development/flutter/bin/cache/dart-sdk/bin/dart test /Users/farhanahmed/development/workout_pro_final/test/services/exercise_service_test.dart -p vm --plain-name 'create + read back'
-00:01 +0 -1: weekly stats compute Mon→Sun counts                                                                                                                                                       00:01 +0 -2: weekly stats compute Mon→Sun counts [E]                                                                                                                                                   
-  [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
-  package:firebase_core_platform_interface/src/method_channel/method_channel_firebase.dart 192:5  MethodChannelFirebase.app
-  package:firebase_core/src/firebase.dart 79:41                                                   Firebase.app
-  package:firebase_auth/src/firebase_auth.dart 38:47                                              FirebaseAuth.instance
-  package:workout_pro/services/exercise_service.dart 13:39                                        new ExerciseService
-  test/services/exercise_service_test.dart 15:11                                                  main.<fn>
+00:03 +0 -1: weekly stats compute Mon→Sun counts                                                                                                                                                       00:03 +0 -2: weekly stats compute Mon→Sun counts [E]                                                                                                                                                   
+  Expected: true
+    Actual: <false>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 474:18  expect
+  test/services/exercise_service_test.dart 87:5       main.<fn>
   
 
 To run this test again: /Users/farhanahmed/development/flutter/bin/cache/dart-sdk/bin/dart test /Users/farhanahmed/development/workout_pro_final/test/services/exercise_service_test.dart -p vm --plain-name 'weekly stats compute Mon→Sun counts'
-00:01 +0 -2: update + delete                                                                                                                                                                           00:01 +0 -3: update + delete [E]                                                                                                                                                                       
-  [core/no-app] No Firebase App '[DEFAULT]' has been created - call Firebase.initializeApp()
-  package:firebase_core_platform_interface/src/method_channel/method_channel_firebase.dart 192:5  MethodChannelFirebase.app
-  package:firebase_core/src/firebase.dart 79:41                                                   Firebase.app
-  package:firebase_auth/src/firebase_auth.dart 38:47                                              FirebaseAuth.instance
-  package:workout_pro/services/exercise_service.dart 13:39                                        new ExerciseService
-  test/services/exercise_service_test.dart 15:11                                                  main.<fn>
+00:03 +0 -2: update + delete                                                                                                                                                                           00:03 +0 -3: update + delete [E]                                                                                                                                                                       
+  Bad state: No element
+  dart:core                                        List.first
+  test/services/exercise_service_test.dart 100:29  main.<fn>
   
 
 To run this test again: /Users/farhanahmed/development/flutter/bin/cache/dart-sdk/bin/dart test /Users/farhanahmed/development/workout_pro_final/test/services/exercise_service_test.dart -p vm --plain-name 'update + delete'
-00:01 +0 -3: Some tests failed.                                                                                                                                                                        
+00:03 +0 -3: Some tests failed.                                                                                                                                                                        
