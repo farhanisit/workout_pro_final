@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "528799096394",
+    "project_id": "fitness-tracking-app-4c4c4",
+    "storage_bucket": "fitness-tracking-app-4c4c4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528799096394:android:c998888d803112bd9010b3",
+        "android_client_info": {
+          "package_name": "com.example.fitness_tracker_new"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArDwMYQ_PDI2xLPJtLgsy1zhNgKwTd_q4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528799096394:android:ca41d9418b5afce99010b3",
+        "android_client_info": {
+          "package_name": "com.example.fitness_tracking_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArDwMYQ_PDI2xLPJtLgsy1zhNgKwTd_q4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528799096394:android:0623db17afda0b609010b3",
+        "android_client_info": {
+          "package_name": "com.example.workout_pro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArDwMYQ_PDI2xLPJtLgsy1zhNgKwTd_q4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
