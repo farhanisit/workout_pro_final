@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:workout_pro/services/exercise_service.dart';
 import 'package:workout_pro/model/exercise.dart' as model;
+import 'package:workout_pro/testing/keys.dart';
 
 /// Dashboard lives under the BottomNav host.
 /// - We PUSH standalone flows (create/list) so Back returns here.

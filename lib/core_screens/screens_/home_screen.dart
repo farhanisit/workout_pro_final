@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:workout_pro/services/exercise_service.dart';
 import 'package:workout_pro/model/exercise.dart' as model;
+import 'package:workout_pro/testing/keys.dart'; // ← added
 
 /// Home/Dashboard under BottomNav host.
 /// - PUSH for standalone flows (create/list) so Back returns here.
@@ -133,6 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 12),
               InkWell(
+                key: TKeys.programsHub, // ← added
                 borderRadius: BorderRadius.circular(16),
                 onTap: () => context.push('/cardio-list'), // PUSH
                 child: Ink(
@@ -166,6 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               // Total Workouts (tap → manage)
               _tappableCard(
+                key: TKeys.totalWorkoutsTile, // ← added
                 onTap: _openManage, // PUSH
                 child: Row(
                   children: [
@@ -233,6 +236,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
+        key: TKeys.addWorkoutFab, // ← added
         onPressed: _openCreate,
         icon: const Icon(Icons.add),
         label: const Text('Add Workout'),
@@ -241,8 +245,13 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   // Card shells (dark friendly via theme tokens)
-  Widget _tappableCard({required Widget child, required VoidCallback onTap}) {
+  Widget _tappableCard({
+    Key? key, // ← added
+    required Widget child,
+    required VoidCallback onTap,
+  }) {
     return Card(
+      key: key, // ← added
       elevation: 2,
       color: Theme.of(context).cardColor,
       clipBehavior: Clip.antiAlias,
