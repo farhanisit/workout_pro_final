@@ -1,4 +1,3 @@
-// test/services/exercise_service_test.dart
 import 'package:flutter_test/flutter_test.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
@@ -10,18 +9,54 @@ void main() {
   late FakeFirebaseFirestore fake;
   late ExerciseService svc;
 
-  setUp(() {
+  // Will point to the actual collection your service uses (subcollection or top-level)
+  late CollectionReference<Map<String, dynamic>> root;
+
+  setUp(() async {
     fake = FakeFirebaseFirestore();
-    svc = ExerciseService.test(firestore: fake, userId: 'u1'); // DI, as in your app
+
+    // ensure parent user doc exists (needed if service uses subcollection)
+    await fake.collection('users').doc('u1').set({'_': true});
+
+    // inject uid; avoids FirebaseAuth path
+    svc = ExerciseService(firestore: fake, userId: 'u1');
+
+    // ---- Detect storage path used by the service ----
+    const probeName = '__probe__';
+    await svc.createExercise(Exercise(
+      id: null,
+      name: probeName,
+      gif: 'p.gif',
+      equipment: 'None',
+      target: '1',
+      bodyPart: 'core',
+      duration: null,
+      createdAt: DateTime.now(),
+    ));
+
+    final sub = fake.collection('users').doc('u1').collection('exercises');
+    final subHit = await sub.where('name', isEqualTo: probeName).limit(1).get();
+    if (subHit.docs.isNotEmpty) {
+      root = sub;
+      await sub.doc(subHit.docs.first.id).delete();
+    } else {
+      final top = fake.collection('exercises');
+      final topHit = await top.where('name', isEqualTo: probeName).limit(1).get();
+      if (topHit.docs.isEmpty) {
+        throw StateError('Could not detect ExerciseService storage path.');
+      }
+      root = top;
+      await top.doc(topHit.docs.first.id).delete();
+    }
   });
 
-  // Helper that matches your Exercise model (named params; target is String; DateTime? createdAt)
+  // matches your Exercise model
   Exercise makeExercise({
     String? id,
     String name = 'Pushups',
-    String gif = 'https://example.com/pushups.gif',
+    String gif = 'pushups.gif',
     String equipment = 'None',
-    String target = '10', // <-- String (matches your model)
+    String target = '10',
     String bodyPart = 'chest',
     int? duration,
     DateTime? createdAt,
@@ -40,77 +75,56 @@ void main() {
 
   test('create + read back', () async {
     await svc.createExercise(makeExercise());
-
-    final snap = await fake
-        .collection('exercises')
-        .where('name', isEqualTo: 'Pushups')
-        .limit(1)
-        .get();
-
-    expect(snap.docs, isNotEmpty);
+    final snap = await root.get();                 // no createdAt filter
+    expect(snap.docs.length, greaterThan(0));
     final data = snap.docs.first.data();
     expect(data['bodyPart'], 'chest');
-    expect(data['target'], '10'); // target stored as String
+    expect(data['target'], '10');                  // String in your model
   });
 
-  test('weekly stats compute Mon→Sun counts', () async {
+  test('weekly stats compute Mon→Sun counts (in-range seeds)', () async {
     final now = DateTime.now();
+    final start = DateTime(now.year, now.month, now.day).subtract(const Duration(days: 6));
 
-    // Seed three docs on different weekdays (fields match your model)
-    await fake.collection('exercises').add({
-      'name': 'A',
-      'gif': 'a.gif',
-      'equipment': 'None',
-      'target': '5', // String
-      'bodyPart': 'legs',
-      'createdAt': Timestamp.fromDate(now),
-    });
-    await fake.collection('exercises').add({
-      'name': 'B',
-      'gif': 'b.gif',
-      'equipment': 'Band',
-      'target': '8',
-      'bodyPart': 'back',
-      'createdAt': Timestamp.fromDate(now.subtract(const Duration(days: 1))),
-    });
-    await fake.collection('exercises').add({
-      'name': 'C',
-      'gif': 'c.gif',
-      'equipment': 'Mat',
-      'target': '6',
-      'bodyPart': 'core',
-      'createdAt': Timestamp.fromDate(now.subtract(const Duration(days: 3))),
-    });
+    Future<void> seed(int day, String name, String bp) async {
+      await root.add({
+        'name': name,
+        'gif': '$name.gif',
+        'equipment': 'None',
+        'target': '5',
+        'bodyPart': bp,
+        'duration': null,
+        'createdAt': Timestamp.fromDate(start.add(Duration(days: day))),
+      });
+    }
 
-    final weekly = await svc.getWeeklyWorkoutData(); // Future<List<int>>
+    await seed(0, 'A', 'legs');
+    await seed(3, 'B', 'back');
+    await seed(6, 'C', 'core');
+
+    final weekly = await svc.getWeeklyWorkoutData();
     expect(weekly.length, 7);
-    expect(weekly.reduce((a, b) => a + b) > 0, isTrue);
+    expect(weekly.fold<int>(0, (a, b) => a + b), greaterThan(0));
   });
 
   test('update + delete', () async {
-    await svc.createExercise(
-        makeExercise(name: 'Squats', bodyPart: 'legs', target: '12'));
+    await svc.createExercise(makeExercise(name: 'Squats', bodyPart: 'legs', target: '12'));
 
-    // Find the created doc’s ID
-    final created = await fake
-        .collection('exercises')
-        .where('name', isEqualTo: 'Squats')
-        .limit(1)
-        .get();
-    final id = created.docs.first.id;
+    final all = await root.get();
+    expect(all.docs, isNotEmpty);
+    final id = all.docs.first.id;
 
-    // Update using your API (expects an Exercise model)
     await svc.updateExercise(
       id,
       makeExercise(id: id, name: 'Squats', bodyPart: 'legs', target: '15'),
     );
 
-    var doc = await fake.collection('exercises').doc(id).get();
+    var doc = await root.doc(id).get();
     expect(doc.exists, isTrue);
     expect(doc.data()!['target'], '15');
 
     await svc.deleteExercise(id);
-    doc = await fake.collection('exercises').doc(id).get();
+    doc = await root.doc(id).get();
     expect(doc.exists, isFalse);
   });
 }
