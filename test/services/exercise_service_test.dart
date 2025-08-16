@@ -1,3 +1,8 @@
+// exercise_service_test.dart - Unit tests for ExerciseService
+// - Tests CRUD operations and weekly stats computation
+// - Uses FakeFirebaseFirestore for isolated testing
+// - Ensures correct storage path detection and data integrity
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
@@ -41,7 +46,8 @@ void main() {
       await sub.doc(subHit.docs.first.id).delete();
     } else {
       final top = fake.collection('exercises');
-      final topHit = await top.where('name', isEqualTo: probeName).limit(1).get();
+      final topHit =
+          await top.where('name', isEqualTo: probeName).limit(1).get();
       if (topHit.docs.isEmpty) {
         throw StateError('Could not detect ExerciseService storage path.');
       }
@@ -75,16 +81,17 @@ void main() {
 
   test('create + read back', () async {
     await svc.createExercise(makeExercise());
-    final snap = await root.get();                 // no createdAt filter
+    final snap = await root.get(); // no createdAt filter
     expect(snap.docs.length, greaterThan(0));
     final data = snap.docs.first.data();
     expect(data['bodyPart'], 'chest');
-    expect(data['target'], '10');                  // String in your model
+    expect(data['target'], '10'); // String in your model
   });
 
   test('weekly stats compute Mon→Sun counts (in-range seeds)', () async {
     final now = DateTime.now();
-    final start = DateTime(now.year, now.month, now.day).subtract(const Duration(days: 6));
+    final start = DateTime(now.year, now.month, now.day)
+        .subtract(const Duration(days: 6));
 
     Future<void> seed(int day, String name, String bp) async {
       await root.add({
@@ -108,7 +115,8 @@ void main() {
   });
 
   test('update + delete', () async {
-    await svc.createExercise(makeExercise(name: 'Squats', bodyPart: 'legs', target: '12'));
+    await svc.createExercise(
+        makeExercise(name: 'Squats', bodyPart: 'legs', target: '12'));
 
     final all = await root.get();
     expect(all.docs, isNotEmpty);

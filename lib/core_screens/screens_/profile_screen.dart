@@ -1,3 +1,9 @@
+// ProfileScreen.dart - Displays user profile information and settings
+// - Provides user's profile details like username, email  and goal
+// - Allows editing of user goal
+// - Includes theme toggle and logout functionality
+// - Uses Firestore to fetch user data and update profile
+
 import 'package:flutter/material.dart'; // UI Framework
 import 'package:firebase_auth/firebase_auth.dart'; // Firebase Auth for user session
 import 'package:go_router/go_router.dart'; // Navigation system
@@ -6,7 +12,6 @@ import 'package:provider/provider.dart'; // For Theme switching
 import 'package:workout_pro/services/user_service.dart'; // Firestore user service
 import 'package:workout_pro/theme/theme_provider.dart'; // Theme toggler
 
-// ProfileScreen: Displays user's profile info, theme toggle, and logout.
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -18,7 +23,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final UserService _userService = UserService(); // Instance to call Firestore
   Map<String, dynamic>?
       _userData; // Holds profile fields (username, gender, goal, etc.)
-  bool _isLoading = true; // Flag for loading state
+  bool _isLoading = true;
 
   @override
   void initState() {

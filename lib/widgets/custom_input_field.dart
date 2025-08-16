@@ -1,3 +1,8 @@
+// custom_input_field.dart - Custom input field widget for Workout Pro
+// - Reusable text field with consistent styling
+// - Uses Google Fonts for typography
+// - Supports both production and test environments
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

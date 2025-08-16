@@ -1,3 +1,9 @@
+// StreakChip.dart - Displays workout streak as a chip
+// - Fetches workout timestamps from Firestore
+// - Calculates streak based on consecutive workout days
+// - Displays a horizontal bar for each day of the week
+// - Shows streak count and motivational message
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';

@@ -1,3 +1,8 @@
+// login.dart - Login screen for Workout Pro app
+// - Handles user login using Firebase Authentication
+// - Validates user input and manages loading state
+// - Redirects to HomeScreen on successful login
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:workout_pro/services/auth_service.dart';
@@ -26,7 +31,7 @@ class _LoginState extends State<Login> {
       setState(() => isLoading = false);
 
       if (user != null) {
-        context.go('/main'); // ✅ Working route
+        context.go('/main'); // Working route
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text("Login failed. Check credentials.")),

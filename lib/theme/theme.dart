@@ -1,3 +1,8 @@
+// theme.dart - Defines the app's light and dark themes using Flutter's ThemeData
+// - Uses Google Fonts for consistent typography
+// - Configures colors, typography, and component styles
+// - Supports both light and dark modes
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart'; // Google Fonts for consistent typography
 

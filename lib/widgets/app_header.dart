@@ -1,3 +1,7 @@
+// app_header.dart - Custom AppBar for Workout Pro
+// - Follows the design of the fitness UI kit
+// - Uses Google Fonts for typography
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

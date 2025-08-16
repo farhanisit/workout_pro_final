@@ -1,3 +1,9 @@
+// AuthScreen - Handles user authentication (login/signup).
+// - Uses Firebase Auth for authentication
+// - Initializes Firestore profile for new users
+// - Returns to main screen on success
+// - Follows async-safety and mounted check rules
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
@@ -20,7 +26,7 @@ class _AuthScreenState extends State<AuthScreen> {
   bool _isLoading = false;
   String? _errorMessage;
 
-  /// Handles login or sign-up with Firebase Auth and Firestore profile setup
+  // Handles login or sign-up with Firebase Auth and Firestore profile setup
   Future<void> _handleAuth() async {
     setState(() {
       _isLoading = true;
@@ -64,7 +70,7 @@ class _AuthScreenState extends State<AuthScreen> {
     }
   }
 
-  /// Clears all input fields and error messages
+  // Clears all input fields and error messages
   void _clearInputs() {
     _emailController.clear();
     _passwordController.clear();
@@ -183,6 +189,4 @@ AuthScreen:
 - Initializes Firestore profile for new accounts.
 - Returns to main screen on success.
 - Follows async-safety and mounted check rules.
-- ✅ Blue button: Login/Signup
-- 🟠 Orange button: Clear Inputs (email + password)
 */

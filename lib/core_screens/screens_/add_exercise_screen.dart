@@ -1,10 +1,17 @@
+//*************
+// add_exercise_screen.dart - Allows users to log a new workout exercise
+// - Includes dropdowns for most fields and async exercise name selector
+// - Uses Firestore to save exercise data
+// - Provides form validation and error handling
+// - Displays success message and navigates back to app dashboard
+// *************
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:workout_pro/model/exercise.dart';
 import 'package:workout_pro/services/exercise_service.dart';
 
 // AddExerciseScreen allows users to log a new workout exercise.
-// Now includes dropdowns for most fields and async exercise name selector.
+// Includes dropdowns for most fields and async exercise name selector.
 class AddExerciseScreen extends StatefulWidget {
   const AddExerciseScreen({Key? key}) : super(key: key);
 
@@ -110,7 +117,7 @@ class _AddExerciseScreenState extends State<AddExerciseScreen> {
           key: _formKey,
           child: ListView(
             children: [
-              // 🔄 Async dropdown for exercise name
+              // Async dropdown for exercise name
               FutureBuilder<List<String>>(
                 future: _exerciseService.fetchUniqueExerciseNames(),
                 builder: (context, snapshot) {

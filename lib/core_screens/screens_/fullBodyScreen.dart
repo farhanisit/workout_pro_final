@@ -1,3 +1,10 @@
+// FullBodyScreen
+// Displays full-body workouts from Firestore, allowing users to view and create exercises.
+// - Uses Firestore's real-time stream to fetch exercises.
+// - Maps Firestore documents into Exercise objects.
+// - Displays exercises in a scrollable list with cards.
+// - Each exercise can be tapped to view details.
+
 import 'package:flutter/material.dart'; // UI framework
 import 'package:cloud_firestore/cloud_firestore.dart'; // Firebase Firestore for realtime DB
 import 'package:go_router/go_router.dart'; // Routing navigation

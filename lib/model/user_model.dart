@@ -1,4 +1,7 @@
 // UserModel: Represents a basic authenticated user in the app
+// - Contains user ID and email
+// - Provides methods to convert to/from JSON for Firebase compatibility
+
 class UserModel {
   final String uid; // Firebase User ID
   final String email; // User email address

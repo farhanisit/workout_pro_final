@@ -1,3 +1,8 @@
+// custom_button.dart - Custom button widget for Workout Pro
+// - Reusable button for login/signup actions
+// - Uses ElevatedButton with custom styles
+// - Supports both production and test environments
+
 import 'package:flutter/material.dart';
 
 // A reusable custom-styled button widget

@@ -1,10 +1,15 @@
+// cardioListScreen.dart - Displays a list of cardio workouts from Firestore
+// - Uses Firestore to fetch cardio exercises
+// - Displays exercises in a scrollable list with cards
+// - Each exercise can be tapped to view details or create a new one
+
 import 'package:flutter/material.dart'; // Flutter UI rendering
 import 'package:cloud_firestore/cloud_firestore.dart'; // Firebase Firestore DB
 import 'package:go_router/go_router.dart'; // Routing system for navigation
 import 'package:workout_pro/model/exercise.dart'; // Exercise model
 import 'package:workout_pro/features/display_exercise.dart'; // Detail screen to display a single exercise
 
-// cardioListScreen: A stateless widhet to list cardio workouts from Firestore
+// cardioListScreen: A stateless widget to list cardio workouts from Firestore
 class CardioListScreen extends StatelessWidget {
   final String bodyPart;
   const CardioListScreen({super.key, this.bodyPart = 'Cardio'});
@@ -85,10 +90,11 @@ class CardioListScreen extends StatelessWidget {
       ),
     );
   }
-}/*
+}
+/*
 CardioListScreen:
 ==================
 Displays a real-time list of cardio (or passed body part) workouts fetched from Firestore.
 Includes navigation to the CreateExerciseScreen and allows users to view details by tapping.
+==================
 */
-

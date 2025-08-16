@@ -1,3 +1,6 @@
+// activity_line_golden_test.dart - Golden tests for MiniActivityLine widget
+// - Tests rendering in light and dark themes
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';

@@ -1,3 +1,5 @@
+// ProfileSetupScreen.dart - Displays user profile with options to edit goal, toggle theme, and logout
+
 import 'package:flutter/material.dart'; // Flutter material component for UI rendering
 import 'package:firebase_auth/firebase_auth.dart'; // Firebase auth to get current user
 import 'package:go_router/go_router.dart'; // Navigation management
@@ -5,7 +7,7 @@ import 'package:provider/provider.dart'; // State management for theme toggling
 import 'package:workout_pro/services/user_service.dart'; // User Firestore logic
 import 'package:workout_pro/theme/theme_provider.dart'; // Theme state (light/dark)
 
-// 📍 ProfileSetupScreen displays current user details, goal, theme toggle, and logout
+// ProfileSetupScreen displays current user details, goal, theme toggle, and logout
 class ProfileSetupScreen extends StatefulWidget {
   const ProfileSetupScreen({super.key});
 

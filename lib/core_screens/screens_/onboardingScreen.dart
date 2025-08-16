@@ -1,4 +1,9 @@
-// lib/core_screens/screens_/onboardingScreen.dart
+// onboardingScreen.dart -  Onboarding screen for Workout Pro app
+// Provides a welcome message and navigation to authentication screens.
+// - Uses a dark gradient background with white text and buttons
+// - Includes "Get Started" and "I already have an account" buttons
+// - Uses GoRouter for navigation
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';

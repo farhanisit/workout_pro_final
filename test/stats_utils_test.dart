@@ -1,3 +1,8 @@
+// stats_utils_test.dart - Tests for computeWeekly function in stats_utils.dart
+// - Validates correct grouping of DateTime objects into weekly counts
+// - Ensures that empty lists return zeros
+// - Uses Flutter's test package for unit testing
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:workout_pro/services/stats_utils.dart';
 

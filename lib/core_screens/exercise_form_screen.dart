@@ -1,3 +1,7 @@
+// ExerciseFormScreen.dart - Form for creating or editing exercises
+// - Uses ExerciseService for Firestore CRUD operations
+// - Supports both creating new exercises and editing exisiting ones
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

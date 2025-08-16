@@ -1,4 +1,8 @@
-// lib/core_screens/screens_/bottom_nav_scaffold.dart
+// Bottom Navigation Scaffold-- Main tab host for the app
+// - Displays Home, Progress, and Profile tabs
+// - Uses NavigationBar for tab selection
+// - Updates selected tab when route changes
+// - Uses IndexedStack to maintain state of each tab
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -8,10 +12,8 @@ import 'home_screen.dart';
 import 'package:workout_pro/features/progress/progress_screen.dart';
 import 'profile_screen.dart';
 
-/// Hosts the three tabs. IMPORTANT:
-/// - Reads the route param (:index) on construct
-/// - Updates selected tab when the route changes (didUpdateWidget)
-/// - Uses `context.go('/tabs/$i')` to switch tabs (no stacking hosts)
+// - Reads the route param (:index) on construct
+// - Updates selected tab when the route changes (didUpdateWidget)
 class BottomNavScaffold extends StatefulWidget {
   final int initialIndex;
   const BottomNavScaffold({super.key, this.initialIndex = 0});
@@ -42,8 +44,10 @@ class _BottomNavScaffoldState extends State<BottomNavScaffold> {
 
   void _onTap(int i) {
     if (i == _index) return;
-    setState(() => _index = i); // update immediately for snappy UI
-    context.go('/tabs/$i'); // make route canonical
+    setState(() => _index = i); // Update local state
+    // Update the route to reflect the new tab index
+    // e.g. /tabs/0, /tabs/1, /tabs/2
+    context.go('/tabs/$i'); // update the route
   }
 
   @override

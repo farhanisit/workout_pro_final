@@ -1,3 +1,9 @@
+// ExerciseListScreen.dart - Displays a list of user exercises with search and filter options
+// - Uses Firestore to fetch exercises
+// - Allows searching by name and filtering by body part
+// - Displays exercises in a scrollable list with cards
+// - Each exercise can be tapped to view details or deleted
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:go_router/go_router.dart';

@@ -1,3 +1,8 @@
+// firestore_service.dart - Service for managing Firestore operations in Workout Pro
+// - Provides methods for user profile management and workout storage
+// - Uses FirebaseAuth for user authentication
+// - Supports both production and test environments
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

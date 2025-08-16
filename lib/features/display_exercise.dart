@@ -1,3 +1,8 @@
+// DisplayExercise.dart - Displays a workout with detailed info and timer to track progress
+// - Shows exercise name, target, body part, equipment
+// - Includes a timer to track workout duration
+// - Logs workout session using ProgressService
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart'; // For consistent font style
 import 'dart:async';
@@ -99,7 +104,7 @@ class _DisplayExerciseState extends State<DisplayExercise> {
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: theme.primaryColor.withOpacity(0.05),
+                color: theme.primaryColor.withValues(alpha: 0.05),
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Column(

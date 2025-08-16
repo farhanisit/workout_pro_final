@@ -1,3 +1,9 @@
+// progress_service.dart - Service for managing user workout progress in Workout Pro
+// - Logs completed workouts with duration
+// - Fetches user progress history
+// - Provides total workout count
+
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

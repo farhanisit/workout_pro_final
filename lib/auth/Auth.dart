@@ -2,14 +2,17 @@
 // AuthService.dart
 // ================================
 
+// AuthService.dart - Centralized service for Firebase Authentication
+// - Handles user sign up, sign in, and sign out
+// - Provides a stream to listen to authentication state changes
+// - Uses FirebaseAuth for backend authentication
 import 'package:firebase_auth/firebase_auth.dart';
 
-/// A centralized service class to handle Firebase authentication operations.
+
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  /// Registers a user using email and password.
-  /// Returns the [User] if successful, else returns null.
+ 
   Future<User?> signUp(String email, String password) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(

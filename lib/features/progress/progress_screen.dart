@@ -1,3 +1,9 @@
+// ProgressScreen.dart - Displays fitness progress dashboard with weekly and monthly stats
+// - Shows weekly workout data as a strip
+// - Displays body part split in a donut chart
+// - Allows navigation to manage workouts and log activity
+// - Uses Firestore for real-time data updates
+
 import 'dart:math' as math;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -5,12 +11,6 @@ import 'package:go_router/go_router.dart';
 import 'package:workout_pro/services/exercise_service.dart';
 import 'package:workout_pro/model/exercise.dart' as model;
 
-/// Progress can be:
-/// 1) a tab root inside BottomNav, or
-/// 2) a pushed page from Home.
-/// Back behavior:
-/// - If router can pop → pop()
-/// - Else (tab root) → go('/tabs/0').
 class ProgressScreen extends StatefulWidget {
   final FirebaseFirestore firestore;
   const ProgressScreen({super.key, required this.firestore});
@@ -301,7 +301,7 @@ class _DotStrip extends StatelessWidget {
   }
 }
 
-/// Donut with center total label (no packages)
+// Donut with center total label
 class _DonutChart extends StatelessWidget {
   final Map<String, int> data;
   final Color centerTextColor;

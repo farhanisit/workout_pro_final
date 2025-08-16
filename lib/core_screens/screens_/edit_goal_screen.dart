@@ -1,3 +1,9 @@
+// edit_goal_screen.dart - Allows users to view and update their fitness goal
+// - Fetches current goal from Firestore
+// - Provides form validation and async-safe updates
+// - Uses Provider for theme management
+// - Includes progress overlay during save operation
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
@@ -5,9 +11,6 @@ import 'package:provider/provider.dart';
 import 'package:workout_pro/services/user_service.dart';
 import 'package:workout_pro/theme/theme_provider.dart';
 
-// EditGoalScreen
-// Allows user to view and update their goal with async-safe Firestore operations.
-// Features guarded navigation, progress overlay, and UX consistency across platforms.
 class EditGoalScreen extends StatefulWidget {
   const EditGoalScreen({super.key});
 
@@ -19,9 +22,9 @@ class _EditGoalScreenState extends State<EditGoalScreen> {
   final TextEditingController _goalController = TextEditingController();
   final UserService _userService = UserService();
 
-  bool _isLoading = false; // UI-level loading state (for button and spinner)
-  bool _isSaving = false; // Operation lock to block pop/navigation
-  bool _saveCompleted = false; // Used to decide if pop should proceed
+  bool _isLoading = false;
+  bool _isSaving = false;
+  bool _saveCompleted = false;
 
   @override
   void initState() {
@@ -49,7 +52,7 @@ class _EditGoalScreenState extends State<EditGoalScreen> {
         });
       }
     } catch (e) {
-      debugPrint('❌ Goal fetch failure: $e');
+      debugPrint('Goal fetch failure: $e');
       _showSnack("Failed to load your goal. Please retry.");
     }
   }
@@ -86,7 +89,7 @@ class _EditGoalScreenState extends State<EditGoalScreen> {
       // Return result to caller (e.g. ProfileScreen)
       if (mounted) context.pop(true);
     } catch (e) {
-      debugPrint("❌ Save failed: $e");
+      debugPrint("Save failed: $e");
       _showSnack("Update failed. Check your connection.");
     } finally {
       if (mounted) {

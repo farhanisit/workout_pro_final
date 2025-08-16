@@ -1,3 +1,9 @@
+// signup.dart - Sign-up screen for Workout Pro app
+// - Handles user registration using Firebase Authentication
+// - Validates user input and manages loading state
+// - Creates a Firestore user document on successful registration
+// - Redirects to Login screen after successful sign-up
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';

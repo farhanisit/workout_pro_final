@@ -1,3 +1,8 @@
+// main.dart - Entry point for the Workout Pro app
+// - Initializes Firebase, sets up routing, and manages app state
+// - Uses Provider for state management and Device Preview for testing
+// - Supports both production and test environments
+
 // Flutter and Dart core packages
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

@@ -1,3 +1,10 @@
+// test/stats_utils_split_test.dart - Tests for splitByBodyPart function in stats_utils.dart
+// - Validates correct counting and normalization of body parts
+// - Uses FakeFirebaseFirestore for isolated testing
+// - Ensures that only recent exercises are counted
+// - Supports both production and test environments
+
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

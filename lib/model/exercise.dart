@@ -1,4 +1,11 @@
-import 'package:cloud_firestore/cloud_firestore.dart'; // Required for Timestamp
+// exercise.dart - Represents a workout exercise with optional Firestore ID and timestamp
+// - Creates an Exercise instance
+// - Converts to Firestore-compatible map
+// - Constructs from Firestore document data
+// - Includes createdAt field for timestamping
+// - Uses cloud_firestore package for Firestore integration
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 /// Represents a workout exercise with optional Firestore ID and timestamp.
 class Exercise {

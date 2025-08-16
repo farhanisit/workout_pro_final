@@ -1,3 +1,8 @@
+// primary_button.dart - Custom button widget for Workout Pro
+// - Reusable button with consistent styling
+// - Uses ElevatedButton with custom styles
+// - Supports both production and test environments
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

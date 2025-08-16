@@ -37,7 +37,7 @@ class _GoalSetupScreenState extends State<GoalSetupScreen> {
       onTap: () =>
           setState(() => selectedGoal = goalKey), // Update selected goal on tap
       child: Card(
-        color: isSelected ? color.withOpacity(0.85) : Colors.white,
+        color: isSelected ? color.withValues(alpha: 0.85) : Colors.white,
         elevation: isSelected ? 6 : 2, // Subtle shadow when selected
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),

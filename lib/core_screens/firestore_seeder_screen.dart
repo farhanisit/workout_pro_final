@@ -39,9 +39,9 @@ class SeederScreen extends StatelessWidget {
               onPressed: () async {
                 try {
                   await seedAllGymExercises(); // actual seeding method
-                  _showSnackBar(context, "✅ Successfully seeded exercises!");
+                  _showSnackBar(context, "Successfully seeded exercises!");
                 } catch (e) {
-                  _showSnackBar(context, "❌ Seeding failed: $e");
+                  _showSnackBar(context, "Seeding failed: $e");
                 }
               },
               style: ElevatedButton.styleFrom(

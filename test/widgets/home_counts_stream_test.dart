@@ -1,4 +1,7 @@
-// test/widgets/home_counts_stream_test.dart
+// home_counts_stream_test.dart - Tests the CountsTile widget with a stream
+// - Verifies that the subtitle updates when the stream emits new values
+// - Uses a StreamController to simulate the stream
+// - Ensures the widget is async-safe and uses a local key for subtitle
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';

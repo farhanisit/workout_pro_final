@@ -1,6 +1,9 @@
-// lib/core_screens/screens_/create_exercise_screen.dart
-//
-// CreateExerciseScreen: create OR edit an exercise.
+// CreateExerciseScreen -  A form to create or edit exercises.
+// - Uses ExerciseService consistently for Firestore operations.
+// - Supports both creating new exercises and editing existing ones.
+// - Pre-fills form if an initial Exercise is provided.
+// - Validates input fields and shows error messages.
+// - Displays dropdowns for equipment, body part, and target options.
 // If `initial` is provided, the form pre-fills and saves via update.
 
 import 'package:flutter/material.dart';

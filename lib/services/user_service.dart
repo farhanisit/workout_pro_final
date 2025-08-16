@@ -1,3 +1,9 @@
+// user_service.dart - Service for managing user profiles in Workout Pro
+// - Provides methods for creating, updating, and fetching user profiles
+// - Uses Firestore for storage
+// - Supports both production and test environments
+
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 // UserService: Clean Firestore service layer with safe CRUD ops

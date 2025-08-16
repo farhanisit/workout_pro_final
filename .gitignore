@@ -55,3 +55,6 @@ node_modules/
 rules-tests/node_modules/
 .dart_tool/
 build/
+
+# local backups
+_trash_lib_backup_default/

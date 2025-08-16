@@ -1,4 +1,9 @@
-// test/nav_backstack_widget_test.dart
+// nav_backstack_widget_test.dart - Tests navigation backstack behavior in Workout Pro
+// - Verifies that programmatic back navigation works correctly
+// - Ensures that tab navigation does not interfere with backstack
+// - Uses GoRouter for navigation and widget testing
+// - Supports both production and test environments
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';

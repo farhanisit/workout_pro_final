@@ -1,3 +1,7 @@
+// ExerciseDetailScreen.dart - Displays details of a specific exercise
+// Allows users to view exercise information and edit or delete it.
+// - Uses Firestore to fetch exercise data
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:workout_pro/model/exercise.dart' as model;

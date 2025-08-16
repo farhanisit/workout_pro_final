@@ -1,4 +1,9 @@
-// ✅ WeeklyBarGraph — Now fully integrated with Firestore
+//  WeeklyBarGraph — Displays weekly workout data as a bar graph
+// - Fetches workout timestamps from Firestore
+// - Groups data by weekday and displays in a bar chart
+// - Uses fl_chart for rendering the bar chart
+// - Shows the number of workouts per day of the week
+
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

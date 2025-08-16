@@ -1,4 +1,10 @@
-// lib/core_screens/screens_/dashboard_screen.dart
+//************
+//DashboardScreen - Displays user dashboard with activity tracker and workout summary.
+// - Shows weekly workout data in a line chart.
+// - Provides quick access to create and manage exercises.
+// - Uses ExerciseService for Firestore operations.
+//************
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -7,10 +13,6 @@ import 'package:workout_pro/services/exercise_service.dart';
 import 'package:workout_pro/model/exercise.dart' as model;
 import 'package:workout_pro/testing/keys.dart';
 
-/// Dashboard lives under the BottomNav host.
-/// - We PUSH standalone flows (create/list) so Back returns here.
-/// - We GO when switching tabs (/tabs/...), to avoid stacking another host.
-/// - Theme-aware text & card colors for dark mode.
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
   @override
@@ -144,7 +146,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               const SizedBox(height: 12),
               InkWell(
                 borderRadius: BorderRadius.circular(16),
-                onTap: () => context.push('/cardio-list'), // PUSH
+                onTap: () => context.push('/cardio-list'), 
                 child: Ink(
                   height: 120,
                   decoration: BoxDecoration(
@@ -174,7 +176,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               const SizedBox(height: 12),
 
               _SummaryCard(
-                onTap: _openManageAndRefresh, // PUSH to list
+                onTap: _openManageAndRefresh, 
                 leading: const Icon(Icons.fitness_center),
                 title: const Text("Total Workouts Logged"),
                 subtitle: _LiveCountWithFallback(
@@ -184,7 +186,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ),
               const SizedBox(height: 12),
               _SummaryCard(
-                // IMPORTANT: switch tabs with GO, not PUSH
+                
                 onTap: () => GoRouter.of(context).go('/tabs/1'),
                 leading: const Icon(Icons.star),
                 title: const Text("Consistency Streak"),

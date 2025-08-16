@@ -1,4 +1,9 @@
-// lib/services/stats_utils.dart
+// stats_utils.dart - Utility functions for statistics in Workout Pro
+// - Computes weekly counts from DateTime stamps
+// - Splits workout data by body part
+// - Uses Firestore QueryDocumentSnapshot for data processing
+// - Supports both production and test environments
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 /// Returns counts for Monday..Sunday (index 0..6) from a list of DateTimes.

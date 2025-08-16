@@ -1,3 +1,8 @@
+//Keys.dart - Defines keys for widget testing in Workout Pro
+// - Provides unique keys for home tiles, progress charts, and lists
+// - Ensures deterministic access in widget tests
+// - Supports both production and test environments
+
 import 'package:flutter/widgets.dart';
 
 class TKeys {

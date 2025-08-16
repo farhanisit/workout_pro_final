@@ -1,3 +1,8 @@
+// theme_provider.dart - Manages app theme using ChangeNotifier and SharedPreferences
+// - Provides toggle functionality for dark/light mode
+// - Saves user preference locally
+// - Uses ChangeNotifier for reactive UI updates
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart'; // For saving theme preference locally
 

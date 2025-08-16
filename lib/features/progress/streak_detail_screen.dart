@@ -1,4 +1,7 @@
-// lib/features/progress/streak_detail_screen.dart
+// streak_detail_screen.dart - Displays detailed streak information
+// - Shows current streak and next badge progress
+// - Uses Firestore to fetch streak data
+
 import 'package:flutter/material.dart';
 import 'package:workout_pro/services/exercise_service.dart';
 

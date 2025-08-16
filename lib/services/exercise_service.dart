@@ -1,4 +1,9 @@
-// lib/services/exercise_service.dart
+// exercise_service.dart - Service for managing user exercises in Workout Pro
+// - Provides CRUD operations for exercises
+// - Uses Firestore for storage
+// - Includes analytics methods for tracking user activity
+// - Supports both production and test environments
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:workout_pro/model/exercise.dart';

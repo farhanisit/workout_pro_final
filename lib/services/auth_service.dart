@@ -1,3 +1,8 @@
+// auth_service.dart - Centralized service for Firebase Authentication
+// - Handles user sign up, sign in, and sign out
+// - Provides a stream to listen to authentication state changes
+// - Uses FirebaseAuth for backend authentication
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 // A centralized AuthService to handle all Firebase Auth logic

@@ -1,4 +1,9 @@
-// lib/router.dart
+// *** app_router.dart *** - Defines the app's navigation structure using GoRouter
+// - Handles public/auth routes, tab navigation, and nested routes
+// - Implements auth guard to redirect unauthenticated users
+// - Supports both production and test environments
+// - Uses FirebaseAuth for user authentication state
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_auth/firebase_auth.dart';
